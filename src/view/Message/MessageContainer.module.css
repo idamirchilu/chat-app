@@ -2,18 +2,18 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+    background-color: red;
 }
 .date{
-    text-align: right;
+    text-align: center;
     font-size: 14px;
     height: 20px;
 }
 .date p{
-    margin-right: 1rem;
+    margin-right: 6rem;
 }
 
 .card{
-    max-width: 40vh;
     width: auto;
     text-align: left;
     margin-top: 4px;

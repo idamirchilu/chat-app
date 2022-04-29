@@ -1,13 +1,13 @@
-.form{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 85%;
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
 }
 .form Button {
-    margin-left: 1rem;
+  margin-left: 2rem;
 }
-.container{
-    display: flex;
-    justify-content: space-between;
+.container {
+  display: flex;
+  justify-content: space-between;
 }

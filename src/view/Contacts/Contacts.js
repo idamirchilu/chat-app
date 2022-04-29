@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
 import classes from "./Contacts.module.css";
+import ContactsList from "./ContactsList";
 
 export default function Contacts() {
   return (
@@ -7,7 +8,7 @@ export default function Contacts() {
       <Card.Header className={classes.header}>
         <h2>Contacts</h2>
       </Card.Header>
-      <Card.Body className={classes.body}>Contacts</Card.Body>
+      <Card.Body className={classes.body}><ContactsList /></Card.Body>
     </Card>
   );
 }

@@ -2,13 +2,13 @@ import { Card, Dropdown } from "react-bootstrap";
 import classes from "./MessageContainer.module.css";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { messageActions } from "../../store/message-slice";
+import { userActions } from "../../store/user-slice";
 
 export default function MessageContainer({ message }) {
   const dispatch = useDispatch();
 
   const deleteMessageHandler = () =>
-    dispatch(messageActions.delete(message.id));
+    dispatch(userActions.deleteMessage(message.id));
 
   return (
     <div className={classes.container}>

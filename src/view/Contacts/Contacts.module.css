@@ -1,6 +1,7 @@
 .container {
   height: 100vh;
   width: 25%;
+;
 }
 .header {
   height: 67px;
@@ -10,4 +11,6 @@
 .body {
   background-color: #045de9;
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+  padding: 0;
+  margin: 0
 }
