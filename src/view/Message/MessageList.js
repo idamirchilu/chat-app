@@ -7,7 +7,7 @@ export default function MessageList() {
   return (
     <>
       {activeUser.messages.map((item) => (
-        <MessageContainer message={item} />
+        <MessageContainer key={Math.random()} message={item} />
       ))}
     </>
   );

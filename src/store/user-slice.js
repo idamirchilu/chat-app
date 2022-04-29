@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import avatar from "../assets/images/avatar.png";
 
 const initialValue = {
+  reqly: false,
+  replyTo: null,
   users: [
     { userName: "user1", messages: [], active: true, avatar },
     { userName: "user2", messages: [], active: false, avatar },
-    { userName: "user2", messages: [], active: false, avatar },
+    { userName: "user3", messages: [], active: false, avatar },
   ],
 };
 
@@ -31,6 +33,13 @@ const userSlice = createSlice({
       activeUser.messages = activeUser.messages.filter(
         (item) => item.id !== payload
       );
+    },
+    replyMessage(state, { payload }) {
+      state.reqly = true;
+      state.replyTo = payload;
+    },
+    closeReply(state) {
+      state.reqly = false;
     },
   },
 });
