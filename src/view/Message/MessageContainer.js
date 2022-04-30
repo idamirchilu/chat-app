@@ -22,38 +22,38 @@ export default function MessageContainer({ message }) {
   const replyMessageHandler = () => {
     dispatch(userActions.replyMessage(message.id));
   };
-  // if (false) {
-  //   return (
-  //     <div className={classes.container}>
-  //       <Card>
-  //         <Card.Header className={classes.reqly}>
-  //           <h5>soheil</h5>
-  //           <Card.Text>heloqenjvf wjkvb</Card.Text>
-  //         </Card.Header>
-  //         <div className={classes.card}>
-  //           <Card.Text className={classes.text}>{message.text}</Card.Text>
-  //           <Dropdown className={classes.tooltip}>
-  //             <Dropdown.Toggle
-  //               as={BsThreeDotsVertical}
-  //               id="dropdown-autoclose-true"
-  //             />
-  //             <Dropdown.Menu>
-  //               <Dropdown.Item href="#">Reply</Dropdown.Item>
-  //               <Dropdown.Item href="#" onClick={deleteMessageHandler}>
-  //                 Delete
-  //               </Dropdown.Item>
-  //               <Dropdown.Item href="#">Edit</Dropdown.Item>
-  //               <Dropdown.Item href="#">Copy</Dropdown.Item>
-  //             </Dropdown.Menu>
-  //           </Dropdown>
-  //         </div>
-  //       </Card>
-  //       <div className={classes.date}>
-  //         <p>{message.date}</p>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (!!message.replyTo) {
+    return (
+      <div className={classes.container}>
+        <Card style={{ borderRadius: "15px" }}>
+          <Card.Header className={classes.reqly}>
+            <h5>{message.replyTo.userName}</h5>
+            <Card.Text>{message.replyTo.text}</Card.Text>
+          </Card.Header>
+          <div className={classes.card}>
+            <Card.Text className={classes.text}>{message.text}</Card.Text>
+            <Dropdown className={classes.tooltip}>
+              <Dropdown.Toggle
+                as={BsThreeDotsVertical}
+                id="dropdown-autoclose-true"
+              />
+              <Dropdown.Menu>
+                <Dropdown.Item href="#">Reply</Dropdown.Item>
+                <Dropdown.Item href="#" onClick={deleteMessageHandler}>
+                  Delete
+                </Dropdown.Item>
+                <Dropdown.Item href="#">Edit</Dropdown.Item>
+                <Dropdown.Item href="#">Copy</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+        </Card>
+        <div className={classes.date}>
+          <p>{message.date}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={classes.container}>

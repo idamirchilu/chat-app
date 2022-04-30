@@ -33,13 +33,20 @@ const userSlice = createSlice({
       activeUser.messages = activeUser.messages.filter(
         (item) => item.id !== payload
       );
+      if (state.replyTo.id === payload) {
+        state.reqly = false;
+        state.replyTo = null;
+      }
     },
     replyMessage(state, { payload }) {
       state.reqly = true;
-      state.replyTo = payload;
+      const { messages } = state.users.find((item) => item.active);
+      const message = messages.find((item) => item.id === payload);
+      state.replyTo = message;
     },
     closeReply(state) {
       state.reqly = false;
+      state.replyTo = null;
     },
   },
 });

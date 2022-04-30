@@ -5,7 +5,8 @@ import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../store/user-slice";
 import avatar from "../assets/images/avatar.png";
-import { BsFillArrowUpLeftSquareFill, BsXLg } from "react-icons/bs";
+import replyIcon from "../assets/images/reply-icon.png";
+import closeIcon from "../assets/images/close-icon.png";
 
 export default function Footer() {
   const userState = useSelector((state) => state.user);
@@ -14,6 +15,10 @@ export default function Footer() {
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
+    if (messageInputRef.current.value.length === 0) {
+      alert("type something");
+      return;
+    }
     const date = new Date();
     const hour = date.getHours() === 0 ? "00" : date.getHours();
     const resultDate = `${date.getFullYear()}/${date.getMonth()}/${date.getDay()}-${hour}:${date.getMinutes()}`;
@@ -37,17 +42,28 @@ export default function Footer() {
         <Form onSubmit={formSubmitHandler} className={classes.form}>
           <div className={classes.input}>
             <Card className={classes.reqly}>
-              <Button style={{ marginLeft: 0 }}>
-                <BsFillArrowUpLeftSquareFill size="20" />
-              </Button>
-
-              <div style={{ marginLeft: "1rem" }}>
-                <h5>soheil</h5>
-                <em>woeubciweubv</em>
+              <div style={{ display: "flex" }}>
+                <img src={replyIcon} alt="reply" />
+                <div
+                  style={{
+                    dispaly: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <h5>Soheil</h5>
+                  <p style={{ marginLeft: "4px" }}>{userState.replyTo.text}</p>
+                </div>
               </div>
-              <Button onClick={() => dispatch(userActions.closeReply())}>
-                <BsXLg size="20" />
-              </Button>
+              <div>
+                <Button
+                  onClick={() => dispatch(userActions.closeReply())}
+                  style={{ background: "none", border: "none" }}
+                >
+                  <img src={closeIcon} height="35px" alt="close" />
+                </Button>
+              </div>
             </Card>
             <Form.Control
               style={{ height: "3rem" }}
